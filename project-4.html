@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Project 4</title>
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Global CSS -->
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- Project layout -->
+		<link rel="stylesheet" href="assets/css/project.css" />
+
+		<!-- Project-specific (only if needed) -->
+		<link rel="stylesheet" href="assets/css/project-4.css" />
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container">
+				<nav class="navbar">
+					<div class="logo">
+						<a href="index.html">Home</a>
+					</div>
+					<ul class="nav-links">
+						<li><a href="index.html#projects">Projects</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<div class="container project-wrapper with-sidebar">
+				<!-- Sidebar -->
+				<aside class="project-sidebar">
+					<nav>
+						<ul>
+							<li><a href="#overview">Overview</a></li>
+							<li><a href="#profitability">Profitability Trends</a></li>
+							<li>
+								<a href="#geographic-concentration"
+									>Geographic and Portfolio Structure</a
+								>
+							</li>
+							<li><a href="#operations">Business Operations</a></li>
+							<li><a href="#modeling-notes">Modelling Reference</a></li>
+
+							<li><a href="#video-demo">Video Demo</a></li>
+							<li>
+								<a href="#note">Author's Note</a>
+							</li>
+						</ul>
+					</nav>
+				</aside>
+
+				<!-- Content -->
+				<div class="project-content">
+					<!-- Hero -->
+					<section id="project-hero" class="project-section">
+						<h1>Power BI Dashboard Modelling</h1>
+						<div class="project-meta">
+							<span class="tag tag-analysis">Data Analysis</span>
+							<span class="tag tag-visualization">Power BI</span>
+							<span class="tag tag-business">Business</span>
+							<p class="publish-date">Last Updated: 17 February 2026</p>
+						</div>
+					</section>
+
+					<div id="overview" class="project-section">
+						<h2>Overview</h2>
+						<p>
+							This dashboard is built from a multi-year supply chain dataset
+							covering commercial activity across several markets from January
+							2015 to January 2018. The data tracks each order in detail,
+							including financial results and fulfillment performance. This
+							makes it possible to analyze profitability together with
+							operational execution and provides a complete view of overall
+							business performance.
+						</p>
+						<p class="redirect">
+							The dataset used in this project can be accessed on Mendeley Data:
+							<a href="https://data.mendeley.com/datasets/8gx2fvg2k6/3">
+								https://data.mendeley.com/datasets/8gx2fvg2k6/3
+							</a>
+						</p>
+
+						<section class="project-image">
+							<img src="assets/img/project-4/Dashboard.svg" alt="" />
+						</section>
+						<p>
+							The dashboard is arranged to answer three escalating questions:
+						</p>
+
+						<ul>
+							<li>How is profitability moving?</li>
+							<li>Where is it concentrated?</li>
+							<li>Are business operations influencing the result?</li>
+						</ul>
+					</div>
+
+					<div id="profitability" class="project-section">
+						<h2>Profitability Trends</h2>
+						<p>
+							To analyse trends, I grouped daily transactions into monthly
+							totals to reduce short-term fluctuations and make longer-term
+							patterns clearer. I created separate line charts for Revenue,
+							Profit, and Units Sold so each metric could be viewed clearly
+							without scale issues.
+						</p>
+
+						<p>
+							The measures (Total Profit, Total Revenue and Units Sold) were
+							built to ensure consistent aggregation logic and reliable
+							interaction with filters and date selections
+						</p>
+					</div>
+
+					<div class="project-section">
+						<h3>Key Findings</h3>
+						<section class="project-image">
+							<img src="assets/img/project-4/trends.svg" alt="" />
+						</section>
+						<p>
+							Revenue, profit, and units sold move closely together for most of
+							the period. This suggests that profit margins remained relatively
+							stable and that changes in performance were largely driven by
+							sales volume rather than pricing or cost shifts.
+						</p>
+
+						<p>
+							In late 2017, all three metrics fall sharply and stay at lower
+							levels. Because revenue and profit continue to move in line with
+							each other, the decline appears to be linked to reduced sales
+							activity rather than a change in profitability per unit. The drop
+							is sudden rather than gradual, which indicates a clear shift in
+							performance during that period.
+						</p>
+					</div>
+
+					<div id="geographic-concentration" class="project-section">
+						<h2>Geographic and Portfolio Structure</h2>
+						<p>
+							To examine geographic concentration, I used a field parameter that
+							allow switching between Market, Region, and Country views. An
+							additional parameter allows the metric to change between Revenue
+							and Profit to make comparisons straightforward within the same
+							visual.
+						</p>
+
+						<p>
+							Ranking was handled using RANKX together with a Top-N selector, to
+							allow users to view either the Top 5 or Top 10 entities within any
+							selected geographic scope. This reduced the need for multiple
+							charts while keeping the analysis flexible and interactive.
+						</p>
+
+						<p>
+							Customer segment contribution was shown through a profit
+							distribution pie chart, while product-level concentration was
+							analysed using a ranked bar chart displaying the Top 5 categories
+							by total profit.
+						</p>
+					</div>
+
+					<div class="project-section">
+						<h3>Key Findings</h3>
+						<section class="project-image">
+							<img src="assets/img/project-4/geography.svg" alt="" />
+						</section>
+						<p>
+							At the country level, the United States generates the highest
+							share of profit, showing clear concentration in a single market.
+							However, when results are grouped by broader categories, Europe
+							ranks as the top region and market overall. This means that while
+							one country leads individually, Europe contributes more when
+							viewed as a combined region.
+						</p>
+
+						<p>
+							The structure therefore shows concentration at the country level
+							and broader distribution at the regional level. Performance
+							depends heavily on the United States, but Europe provides
+							collective strength across multiple countries. This balance
+							reduces some risk, although results remain sensitive to changes in
+							the leading country.
+						</p>
+
+						<section class="project-image">
+							<img src="assets/img/project-4/segments.svg" alt="" />
+						</section>
+						<p>
+							The Consumer segment accounts for more than half of total profit,
+							with Corporate contributing a smaller share and Home Office the
+							least. This shows that overall performance is largely driven by
+							consumer demand, with limited balance across segments.
+						</p>
+
+						<p>
+							At the product level, Fishing generates the highest profit,
+							followed by Cleats and Camping & Hiking. The gap between these
+							leading categories and the rest suggests that profitability is
+							concentrated in a small number of product lines rather than spread
+							evenly across the portfolio.
+						</p>
+					</div>
+
+					<div id="operations" class="project-section">
+						<h2>Business Operations</h2>
+						<p>
+							To assess operational performance, I analysed Order Status as a
+							percentage of total orders. This ensured results remain comparable
+							across different filters and helps show how orders progress
+							through the fulfillment process.
+						</p>
+
+						<p>
+							Shipping performance was evaluated using Total Orders, Average
+							Profit per Order, and Average Shipping Days. This made it possible
+							to compare delivery speed, profitability, and order volume across
+							shipping modes within the same view.
+						</p>
+					</div>
+
+					<div class="project-section">
+						<section class="project-image">
+							<img src="assets/img/project-4/operations.svg" alt="" />
+						</section>
+						<h3>Key Findings</h3>
+						<p>
+							Completed orders make up the largest share of total orders, while
+							a noticeable portion remains in processing and pending stages.
+							This suggests that revenue depends on how efficiently orders move
+							through the system because delays can affect when sales are
+							finalized and cash is received.
+						</p>
+
+						<p>
+							Shipping times follow the expected pattern, with Same Day being
+							the fastest and Standard Class the slowest. However, profit per
+							order does not increase significantly with faster delivery. Most
+							orders are placed under Standard Class, which could mean that
+							overall shipping profitability is driven more by volume than by
+							premium delivery options.
+						</p>
+					</div>
+
+					<div id="modeling-notes" class="project-section">
+						<h2>Modelling Reference</h2>
+						<p>
+							The multi-year dataset was imported into Power BI Desktop and each
+							column was reviewed for relevance to the analysis. Fields that
+							were not required were removed to keep the model focused and
+							efficient.
+						</p>
+
+						<p>
+							Column names were cleaned for clarity and inconsistencies were
+							checked before loading the data into the model. The measures
+							created for the dashboard are listed below.
+						</p>
+					</div>
+
+					<div class="project-section">
+						<p class="sub-heading">Time Aggregation</p>
+						<pre><code>MonthStart = DATE(YEAR(orders[Order Date]), MONTH(orders[Order Date]), 1)
+
+MonthLabel = FORMAT(orders[MonthStart], "MMM YYYY")</code></pre>
+					</div>
+
+					<div class="project-section">
+						<p class="sub-heading">Core Financial Measures</p>
+						<pre><code>Total Revenue = SUM(orders[Revenue])
+
+Total Profit = SUM(orders[Order Profit Per Order])
+
+Units Sold = SUM(orders[Order Item Quantity])
+
+Total Orders = DISTINCTCOUNT(orders[Order Id])</code></pre>
+					</div>
+
+					<div class="project-section">
+						<p class="sub-heading">Operational Measures</p>
+						<pre><code>Avg Profit = 
+AVERAGE(orders[Order Profit Per Order])
+
+Avg Shipping Days = 
+AVERAGE(orders[Days for shipping (real)])
+
+% of Total Orders = 
+DIVIDE(
+    [Total Orders],
+    CALCULATE([Total Orders], ALL(orders[Order Status Lower]))
+)</code></pre>
+					</div>
+
+					<div class="project-section">
+						<p class="sub-heading">Dynamic Top-N Logic</p>
+						<pre><code>Top = GENERATESERIES(5, 10, 5)</code></pre>
+
+						<pre><code>Selected Metric Value = 
+SWITCH(
+    TRUE(),
+    SELECTEDVALUE('Metric Selector'[Metric Selector Fields]) = NAMEOF([Total Revenue]),  [Total Revenue],
+    SELECTEDVALUE('Metric Selector'[Metric Selector Fields]) = NAMEOF([Total Profit]), [Total Profit]
+)</code></pre>
+
+						<pre><code>Rank = 
+SWITCH(
+    TRUE(),
+
+    SELECTEDVALUE('Geography Selector'[Geography Selector Fields]) = "'orders'[Market]",
+    RANKX(
+        ALLSELECTED('orders'[Market]),
+        [Selected Metric Value],
+        ,
+        DESC,
+        DENSE
+    ),
+
+    SELECTEDVALUE('Geography Selector'[Geography Selector Fields]) = "'orders'[Order Region]",
+    RANKX(
+        ALLSELECTED('orders'[Order Region]),
+        [Selected Metric Value],
+        ,
+        DESC,
+        DENSE
+    ),
+
+    SELECTEDVALUE('Geography Selector'[Geography Selector Fields]) = "'orders'[Order Country]",
+    RANKX(
+        ALLSELECTED('orders'[Order Country]),
+        [Selected Metric Value],
+        ,
+        DESC,
+        DENSE
+    )
+)</code></pre>
+
+						<pre><code>Dynamic Filter = 
+VAR _selectednumber = SELECTEDVALUE('Top'[Top])
+RETURN
+IF(
+    ISFILTERED('Top'),
+    INT([Rank] &lt;= _selectednumber),
+    1
+)</code></pre>
+					</div>
+
+					<section id="video-demo" class="project-section">
+						<h2>Video Demo</h2>
+						<p>
+							This short video walks through the creation of the dashboard and
+							shows how the visuals and filters work together.
+						</p>
+						<div class="video-container">
+							<iframe
+								width="800"
+								height="450"
+								src="https://www.youtube.com/embed/YPs6WkPbOHc?si=IwPzKBnWU4yBThnw"
+								title="YouTube video player"
+								frameborder="0"
+								allow="
+									accelerometer;
+									autoplay;
+									clipboard-write;
+									encrypted-media;
+									gyroscope;
+									picture-in-picture;
+									web-share;
+								"
+								referrerpolicy="strict-origin-when-cross-origin"
+								allowfullscreen
+							></iframe>
+						</div>
+
+						<p>
+							This project shows how transactional data can be organised into a
+							clear and interactive Power BI dashboard. It combined structured
+							modelling and visual design to support clear analysis of
+							performance trends, market exposure, product mix, and operational
+							activity in relation to profit.
+						</p>
+					</section>
+					<hr />
+
+					<section id="note" class="project-section">
+						<h2>Author's Note</h2>
+						<p>
+							I undertook this power BI project as an opportunity to combine
+							analytical thinking with visual design. I enjoy working with data
+							and graphics, so this project allowed me to translate raw
+							information into an interactive dashboard. Building the model
+							required careful data preparation and deliberate visual design
+							choices. It definitely improved my understanding of how modelling
+							decisions affect interpretation, and also how clarity in
+							presentation improves analytical communication.
+						</p>
+					</section>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

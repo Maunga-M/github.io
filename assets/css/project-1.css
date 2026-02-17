@@ -1,0 +1,22 @@
+#calculations-appendix p {
+	font-size: 0.8rem;
+	background-color: rgba(235, 239, 242, 0.55);
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+#calculations-appendix span {
+	font-weight: 600;
+}
+
+#intro p a {
+	color: var(--color-subheading);
+}
+
+#extracts {
+	margin: 2rem 0;
+}
+
+#extracts p {
+	font-weight: 600;
+}
