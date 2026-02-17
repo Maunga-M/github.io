@@ -1,0 +1,215 @@
+/* about.css (FULL FILE — layout change requested) */
+
+:root {
+	--panel-bg: rgba(239, 241, 243, 0.55);
+	--radius: 7px;
+	--muted: #6a6a6a;
+	--text: #1e1e1e;
+	--body: #424242;
+}
+
+/* Base sizing ~13.6px */
+.about-main {
+	padding-top: 6.2rem;
+	padding-bottom: 4rem;
+	font-size: 0.85rem;
+	line-height: 1.8;
+}
+
+/* Layout width */
+.about-shell {
+	width: 72%;
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1.2fr 1fr; /* About slightly wider than competencies */
+	gap: 1.35rem;
+	align-items: start;
+}
+
+h1 {
+	/* color: var(--color-subheading); */
+    margin-bottom: 1.3rem;
+    font-size: 2rem;
+}
+/* Tiles */
+.tile {
+	background: var(--panel-bg);
+	border-radius: var(--radius);
+	padding: 1.6rem 1.6rem 1.7rem;
+}
+
+/* Typography */
+.kicker {
+	font-family: var(--font-sans);
+	letter-spacing: 0.12em;
+	color: var(--color-text);
+	font-weight: 500;
+	font-size: 0.95rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+}
+
+.about-title {
+	font-size: 2.25rem;
+	line-height: 1.08;
+	margin-top: 0.45rem;
+	margin-bottom: 0.9rem;
+}
+
+.about-text {
+	color: var(--body);
+}
+
+.spacer {
+	height: 1.6rem;
+}
+
+/* Tools */
+.tool-row {
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0.9rem;
+}
+
+.tool {
+	width: 70px;
+	aspect-ratio: 1 / 1;
+	border-radius: var(--radius);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.6rem; /* gives breathing space around logo */
+}
+
+.tool img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+/* Competencies */
+.bullets {
+	margin: 0;
+	padding-left: 1.1rem;
+	color: var(--body);
+}
+
+.bullets li {
+	margin: 0.45rem 0;
+	line-height: 2.1;
+}
+
+/* Items separation */
+.item {
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.item:first-of-type {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: none;
+}
+
+.role {
+	font-family: var(--font-sans);
+	font-size: 0.85rem;
+	font-weight: 400;
+	color: var(--text);
+}
+
+.date {
+	margin-top: 0.25rem;
+	font-size: 0.75rem;
+	color: var(--muted);
+}
+
+.desc {
+	margin-top: 0.65rem;
+	color: var(--body);
+}
+
+/* GRID PLACEMENT */
+.tile-about {
+	grid-column: 1 / 2;
+}
+.tile-competencies {
+	grid-column: 2 / 3;
+}
+
+/* Row 2: experience and education side by side, SAME WIDTH */
+.tile-experience {
+	grid-column: 1 / 2;
+}
+.tile-education {
+	grid-column: 2 / 3;
+}
+
+/* Row 3 */
+.tile-certs {
+	grid-column: 1 / -1;
+}
+
+/* CERTIFICATES */
+
+.cert-grid{
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.cert{
+  width: 420px;      /* fixed width */
+  height: 400px;     /* fixed height */
+  border-radius: var(--radius);
+  background: rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+}
+
+.cert img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+
+/* Responsive */
+@media (max-width: 1100px) {
+	.about-shell {
+		width: 88%;
+		grid-template-columns: 1fr;
+	}
+
+	.tile-about,
+	.tile-competencies,
+	.tile-experience,
+	.tile-education {
+		grid-column: 1 / -1;
+	}
+
+	.tool-row {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.about-title {
+		font-size: 2rem;
+	}
+	.cert-grid {
+		grid-template-columns: 1fr;
+	}
+	.tool-row {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
